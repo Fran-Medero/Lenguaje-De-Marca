@@ -1,0 +1,363 @@
+
+/* =====================================
+   1. RESET Y BOX MODEL
+===================================== */
+
+/* Reset universal:
+   Eliminamos márgenes y rellenos predeterminados.
+   border-box incluye padding y border en el ancho total.
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =====================================
+   2. ESTILOS GENERALES
+===================================== */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #111827;
+    color: #f9fafb;
+    line-height: 1.6;
+}
+
+
+/* =====================================
+   3. CABECERA
+===================================== */
+
+.cabecera {
+    background-color: #1e293b;
+    text-align: center;
+    padding: 35px 20px;
+}
+
+.cabecera h1 {
+    color: #38bdf8;
+    font-size: 36px;
+}
+
+.cabecera p {
+    color: #cbd5e1;
+    margin-top: 10px;
+}
+
+
+/* =====================================
+   4. NAVEGACIÓN CON CSS GRID
+===================================== */
+
+/* La navegación utiliza Grid para
+   colocar los enlaces en horizontal.
+*/
+
+.navegacion {
+    background-color: #0f172a;
+    padding: 15px;
+}
+
+/* Creamos una cuadrícula con flujo horizontal */
+
+.navegacion ul {
+    display: grid;
+
+    /* Los elementos se colocan en columnas */
+    grid-auto-flow: column;
+
+    /* Separamos los enlaces */
+    gap: 30px;
+
+    /* Centramos la cuadrícula */
+    justify-content: center;
+
+    /* Quitamos los puntos de la lista */
+    list-style: none;
+}
+
+.navegacion a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.navegacion a:hover {
+    color: #38bdf8;
+}
+
+
+/* =====================================
+   5. PRESENTACIÓN
+===================================== */
+
+.presentacion {
+    text-align: center;
+    padding: 45px 20px;
+}
+
+.presentacion h2 {
+    color: #38bdf8;
+    margin-bottom: 10px;
+}
+
+
+/* =====================================
+   6. SECCIONES DEL CATÁLOGO
+===================================== */
+
+.catalogo {
+    display: grid;
+
+    /* Crea tantas columnas como quepan, manteniendo el tamaño de las tarjetas */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 320px));
+
+    gap: 25px;
+    padding: 30px 5%;
+
+    /* Centra las tarjetas cuando sobra espacio */
+    justify-content: center;
+}
+
+.catalogo h2 {
+    color: #38bdf8;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #334155;
+    padding-bottom: 10px;
+}
+
+
+/* =====================================
+   7. CONTENEDOR DE PRODUCTOS CON GRID
+===================================== */
+
+/* CSS GRID RESPONSIVE:
+
+   repeat() = repite las columnas.
+   auto-fit = adapta las columnas al espacio.
+   minmax() = establece un mínimo de 300px
+   y permite que las columnas crezcan.
+   1fr = reparte el espacio disponible.
+
+*/
+
+.grid-productos {
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+    /* Separación entre filas y columnas */
+    gap: 1.5rem;
+}
+
+
+/* =====================================
+   8. TARJETAS CON CSS GRID
+===================================== */
+
+/* Cada tarjeta es también una cuadrícula.
+   Los elementos se distribuyen verticalmente.
+*/
+
+.tarjeta {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+
+    width: 100%;
+    min-height: 450px;
+
+    padding: 20px;
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 12px;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+}
+
+
+/* =====================================
+   9. IMÁGENES Y FIGURAS
+===================================== */
+
+.tarjeta figure {
+    margin: 0;
+}
+
+.tarjeta img {
+    width: 100%;
+    height: 180px;
+
+    /* Evitamos deformar la imagen */
+    object-fit: contain;
+
+    background-color: #0f172a;
+    border-radius: 8px;
+}
+
+.tarjeta figcaption {
+    text-align: center;
+    color: #94a3b8;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+
+/* =====================================
+   10. TÍTULOS Y TEXTOS
+===================================== */
+
+.tarjeta h3 {
+    color: #38bdf8;
+    font-size: 19px;
+}
+
+.tarjeta p {
+    color: #cbd5e1;
+}
+
+.precio {
+    font-size: 23px;
+    font-weight: bold;
+    color: #4ade80 !important;
+}
+
+
+/* =====================================
+   11. ETIQUETAS DE ESTADO
+===================================== */
+
+.tarjeta mark {
+    display: inline-block;
+    width: fit-content;
+
+    background-color: #166534;
+    color: white;
+
+    padding: 4px 10px;
+    border-radius: 5px;
+
+    font-size: 13px;
+}
+
+
+/* =====================================
+   12. DETALLES DESPLEGABLES
+===================================== */
+
+.tarjeta details {
+    background-color: #0f172a;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.tarjeta summary {
+    cursor: pointer;
+    color: #38bdf8;
+    font-weight: bold;
+}
+
+.tarjeta details ul {
+    padding-left: 20px;
+    margin-top: 10px;
+    color: #cbd5e1;
+}
+
+
+/* =====================================
+   13. BOTONES
+===================================== */
+
+/* El contenedor de acciones se coloca
+   al final de la tarjeta mediante Grid.
+*/
+
+.acciones {
+    align-self: end;
+    margin-top: 10px;
+}
+
+.tarjeta button {
+    width: 100%;
+    padding: 12px;
+
+    background-color: #0284c7;
+    color: white;
+
+    border: none;
+    border-radius: 7px;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s;
+}
+
+.tarjeta button:hover {
+    background-color: #0369a1;
+}
+
+
+/* =====================================
+   14. PIE DE PÁGINA
+===================================== */
+
+.pie {
+    background-color: #0f172a;
+    text-align: center;
+
+    padding: 30px 15px;
+    margin-top: 40px;
+
+    color: #94a3b8;
+}
+
+.pie small {
+    display: block;
+    margin-top: 8px;
+}
+
+
+/* =====================================
+   15. RESPONSIVE
+===================================== */
+
+/* Ajustes para pantallas pequeñas */
+
+@media (max-width: 650px) {
+
+    .cabecera h1 {
+        font-size: 27px;
+    }
+
+    /* La navegación pasa a varias filas
+       cuando no cabe horizontalmente.
+    */
+
+    .navegacion ul {
+        grid-auto-flow: row;
+        justify-content: center;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .catalogo {
+        padding: 25px 15px;
+    }
+
+    .grid-productos {
+        grid-template-columns: 1fr;
+    }
+
+}
