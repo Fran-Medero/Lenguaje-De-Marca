@@ -1,0 +1,190 @@
+
+/* =========================================
+   1. CONFIGURACIÓN GENERAL
+   ========================================= */
+
+/* Selector universal: afecta a todos los elementos */
+* {
+    box-sizing: border-box; /* Incluye padding y bordes en el tamaño */
+    margin: 0;              /* Elimina márgenes predeterminados */
+    padding: 0;             /* Elimina rellenos predeterminados */
+}
+
+/* Estilos generales de toda la página */
+body {
+    font-family: Arial, Helvetica, sans-serif; /* Tipo de letra */
+    background-color: #f4f6f9; /* Color de fondo */
+    color: #333;               /* Color del texto */
+    line-height: 1.6;          /* Separación entre líneas */
+}
+
+.content {
+    grid-column: 2; /* El contenido principal ocupa la segunda columna */
+    grid-row: 2;    /* El contenido principal ocupa la segunda fila */
+}
+
+.sidebar {
+    grid-column: 1; /* El menú lateral ocupa la primera columna */
+    grid-row: 2;    /* El menú lateral ocupa la segunda fila */
+}
+
+
+/* =========================================
+   2. CABECERA (HEADER)
+   ========================================= */
+
+header {
+    background-color: #1e293b; /* Fondo oscuro */
+    color: white;              /* Texto blanco */
+    text-align: center;        /* Centra el texto */
+    padding: 30px 50px;         /* Espacio interior */
+    width: 100%;               /* Ocupa todo el ancho */
+}
+
+header h1 {
+    font-size: 40px; /* Tamaño del título */
+}
+
+
+/* =========================================
+   3. DISTRIBUCIÓN PRINCIPAL
+   ========================================= */
+
+/* Contenedor que organiza el menú y el contenido */
+body {
+    display: grid;
+    grid-template-columns: 260px 1fr; /* Menú lateral y contenido */
+    grid-template-rows: auto 1fr;     /* Cabecera y zona principal */
+}
+
+/* La cabecera ocupa las dos columnas */
+header {
+    grid-column: 1 / 3;
+}
+
+
+
+/* =========================================
+   4. MENÚ LATERAL (ASIDE)
+   ========================================= */
+
+.sidebar {
+    background-color: #334155; /* Fondo del menú */
+    color: white;
+    padding: 25px 20px;
+    min-height: 100vh; /* Altura mínima de toda la pantalla */
+}
+
+/* Títulos del menú lateral */
+.sidebar h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #38bdf8;
+}
+
+.sidebar h3 {
+    font-size: 18px;
+    margin-top: 30px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #3a567c;
+    padding-bottom: 8px;
+}
+
+/* Párrafos del menú */
+.sidebar p {
+    margin-bottom: 15px;
+}
+
+/* Lista de actividades */
+.sidebar ul {
+    list-style: none; /* Quita los puntos de la lista */
+}
+
+/* Elementos de la lista */
+.sidebar li {
+    background-color: #8692a1;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+/* Efecto al pasar el ratón por encima */
+.sidebar li:hover {
+    background-color: #0ea5e9;
+    cursor: pointer;
+}
+
+.sidebar li a {
+    color: rgb(63, 42, 42);
+    text-decoration: underline; /* Añade el subrayado */
+}
+
+.sidebar p a {
+    color: #3072d6;
+    text-decoration: underline; /* Añade el subrayado */
+}
+
+
+/* =========================================
+   5. CONTENIDO PRINCIPAL (MAIN)
+   ========================================= */
+
+.content {
+    padding: 30px;
+}
+
+/* Apartados individuales de las actividades */
+article {
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    border-left: 5px solid #0ea5e9;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Títulos de cada actividad */
+article h2 {
+    color: #1e293b;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+/* Efecto al pasar el ratón por encima */
+article:hover {
+    transform: translateY(-3px);
+    transition: 0.3s;
+}
+
+
+/* =========================================
+   6. DISEÑO RESPONSIVE
+   ========================================= */
+
+/* Adaptación para móviles y pantallas pequeñas */
+@media (max-width: 768px) {
+
+    /* El menú y el contenido pasan a una columna */
+    body {
+        grid-template-columns: 1fr;
+    }
+
+    /* La cabecera ocupa una sola columna */
+    header {
+        grid-column: 1;
+    }
+
+    /* El menú lateral deja de ocupar toda la pantalla */
+    .sidebar {
+        min-height: auto;
+    }
+
+    /* Reducimos el espacio del contenido */
+    .content {
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 22px;
+    }
+}
